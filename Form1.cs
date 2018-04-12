@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnakeGame.Command;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,24 +34,9 @@ namespace SnakeGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.W:
-                    _SnakeGame.Snake.MoveUp();
-                    break;
-                case Keys.D:
-                    _SnakeGame.Snake.MoveRight();
-                    break;
-                case Keys.S:
-                    _SnakeGame.Snake.MoveDown();
-                    break;
-                case Keys.A:
-                    _SnakeGame.Snake.MoveLeft();
-                    break;
-                case Keys.R:
-                    if (_SnakeGame.GameOver()) _SnakeGame = new SnakeGame();
-                    break;
-            }
+            InputCommand command = InputHandler.HandleInput(e.KeyCode);
+            if (command != null)
+                command.Execute();
         }
     }
 }

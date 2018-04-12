@@ -9,9 +9,8 @@ namespace SnakeGame
 {
     class Snake
     {
-        public List<Point> Body { get { return _Snake; } }
+        public List<Point> Body { get; } = new List<Point>();
 
-        private List<Point> _Snake = new List<Point>();
         private ISnakeMove _SnakeMove;
 
         private bool _CanChangeMove;
@@ -19,9 +18,9 @@ namespace SnakeGame
         public Snake()
         {
             _SnakeMove = new SnakeMoveRight();
-            _Snake.Add(new Point(1, 1));
-            _Snake.Add(new Point(1, 2));
-            _Snake.Add(new Point(1, 3));
+            Body.Add(new Point(1, 1));
+            Body.Add(new Point(1, 2));
+            Body.Add(new Point(1, 3));
 
             _CanChangeMove = true;
         }
@@ -29,12 +28,12 @@ namespace SnakeGame
         public void MakeMove()
         {
             _CanChangeMove = true;
-            _Snake.Add(_SnakeMove.Move(_Snake.Last()));            
+            Body.Add(_SnakeMove.Move(Body.Last()));            
         }
 
         public void RemoveTail()
         {
-            _Snake.Remove(_Snake.First());
+            Body.Remove(Body.First());
         }
 
         private void SetNewMove(ISnakeMove snakeMove)
