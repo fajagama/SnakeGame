@@ -23,7 +23,8 @@ namespace SnakeGame.Level
             _Score = 0;
             _Rnd = new Random();
             _CellSize = 10;
-            
+
+            InputHandler.ClearCommands();
             InputHandler.ButtonUp = new MoveUpCommand(ref _Snake);
             InputHandler.ButtonDown = new MoveDownCommand(ref _Snake);
             InputHandler.ButtonLeft = new MoveLeftCommand(ref _Snake);

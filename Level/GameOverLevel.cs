@@ -16,6 +16,7 @@ namespace SnakeGame.Level
         {
             this._score = ShareMemory.Read("score");
 
+            InputHandler.ClearCommands();
             InputHandler.ButtonRestart = new RestartCommand();
         }
 
