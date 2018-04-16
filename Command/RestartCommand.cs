@@ -11,7 +11,7 @@ namespace SnakeGame.Command
     {
         public override void Execute()
         {
-            LevelManager.LoadNewLevel(new NormalGameLevel());
+            LevelManager.LoadNewLevel("NormalGameLevel");
         }
     }
 }

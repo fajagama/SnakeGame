@@ -8,7 +8,8 @@ using System.Drawing;
 namespace SnakeGame.Level
 {
     interface ILevel
-    { 
+    {
+        void OnCreate();
         void Draw(Graphics g);
         void Update();
     }

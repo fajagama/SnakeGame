@@ -15,16 +15,14 @@ namespace SnakeGame.Level
         private Point _Fruid;
         private Random _Rnd;
         private int _CellSize;
-
-        public NormalGameLevel()
+        
+        public void OnCreate()
         {
-
             _Snake = new Snake();
             _Score = 0;
             _Rnd = new Random();
             _CellSize = 10;
 
-            InputHandler.ClearCommands();
             InputHandler.ButtonUp = new MoveUpCommand(ref _Snake);
             InputHandler.ButtonDown = new MoveDownCommand(ref _Snake);
             InputHandler.ButtonLeft = new MoveLeftCommand(ref _Snake);
@@ -71,7 +69,7 @@ namespace SnakeGame.Level
             {
                 _Snake.Body.Clear();
                 ShareMemory.Add("score", _Score);
-                LevelManager.LoadNewLevel(new GameOverLevel());
+                LevelManager.LoadNewLevel("GameOverLevel");
             }
             else
             {

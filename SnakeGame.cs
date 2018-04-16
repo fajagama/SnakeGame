@@ -12,7 +12,8 @@ namespace SnakeGame
     {
         public SnakeGame()
         {
-            LevelManager.Level = new NormalGameLevel();
+            LevelManager.AddLevel(new NormalGameLevel());
+            LevelManager.AddLevel(new GameOverLevel());
         }
         
         public void Update()

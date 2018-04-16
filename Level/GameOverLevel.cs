@@ -12,11 +12,9 @@ namespace SnakeGame.Level
     {
         private int _score;
 
-        public GameOverLevel()
+        public void OnCreate()
         {
-            this._score = ShareMemory.Read("score");
-
-            InputHandler.ClearCommands();
+            _score = ShareMemory.Read("score");
             InputHandler.ButtonRestart = new RestartCommand();
         }
 
